@@ -2,6 +2,7 @@
 // Replace the import name using underscores for spaces (e.g. "Playfair_Display", "Roboto_Mono")
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import Header from "./components/Header";
 
 // 👉 Step 2: Configure your FONT
 // - variable: the CSS custom property name you'll reference in Tailwind/CSS
@@ -39,7 +40,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${font.variable} h-full antialiased`}
     >
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

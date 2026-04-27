@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/*
+@theme is correct even if VsCode warns about it. 
+For some reason applying colors globally sometimes gets stuck.
+Re-writing the tailwind of the component seems to reset it.
+ */ 
+
+@theme {
+  --color-brand-blue: #00ffff;
+}
