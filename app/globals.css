@@ -4,8 +4,12 @@
 @theme is correct even if VsCode warns about it. 
 For some reason applying colors globally sometimes gets stuck.
 Re-writing the tailwind of the component seems to reset it.
- */ 
+*/
 
 @theme {
-  --color-brand-blue: #00ffff;
+  --color-brand-blue: #0f6aba;
+  --color-brand-bg: #ffffff;
+  --color-brand-text: #000103;
+  --color-brand-pale: #598bb8;
+  --color-brand-very-pale: #cddce8;
 }

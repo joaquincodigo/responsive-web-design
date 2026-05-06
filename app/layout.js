@@ -3,6 +3,8 @@
 import { Roboto } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 // 👉 Step 2: Configure your FONT
 // - variable: the CSS custom property name you'll reference in Tailwind/CSS
@@ -20,7 +22,6 @@ const font = Roboto({
   weight: ["400", "700"],
 });
 
-
 // 👉 Step 3: Update title and description for each project
 // - icons: favicons for multiple devices. favicon.ico goes in /app. The rest in /public.
 export const metadata = {
@@ -36,13 +37,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     // 👉 Step 4: The font variable is injected here at the root — no need to touch this
-    <html
-      lang="en"
-      className={`${font.variable} h-full antialiased`}
-    >
-      <body>
+    <html lang="en" className={`${font.variable} h-full antialiased`}>
+      <body className="text-brand-text bg-brand-bg">
         <Header />
-        {children}
+        <Navbar />
+        <main className="mx-3 mt-15">{children}</main>
+        <Footer />
       </body>
     </html>
   );

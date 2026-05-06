@@ -1,0 +1,6 @@
+#879DC0 (more pale main)
+#506B96 (pale main)
+#DAE0EA (light bg)
+#28416B (main color)
+#0D2141 (text color)
+#021533 (text color (same as abov
