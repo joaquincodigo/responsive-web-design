@@ -1,6 +1,6 @@
 // 👉 Step 1: Pick your FONT FROM GOOGLE https://fonts.google.com
 // Replace the import name using underscores for spaces (e.g. "Playfair_Display", "Roboto_Mono")
-import { Roboto } from "next/font/google";
+import { PT_Serif } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -15,7 +15,7 @@ import Footer from "./components/Footer";
 //    <p>Regular</p>
 //    <p className="font-bold">Bold</p>
 //    <p className="italic">Italic</p>
-const font = Roboto({
+const font = PT_Serif({
   variable: "--font-sans",
   subsets: ["latin"],
   style: ["normal", "italic"],
@@ -25,8 +25,8 @@ const font = Roboto({
 // 👉 Step 3: Update title and description for each project
 // - icons: favicons for multiple devices. favicon.ico goes in /app. The rest in /public.
 export const metadata = {
-  title: "Untitled App",
-  description: "App description goes here",
+  title: "Northbridge Consulting",
+  description: "",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",

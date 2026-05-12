@@ -3,38 +3,37 @@ import Image from "next/image";
 export default function HomePage() {
   return (
     <>
-      <div className="flex justify-center">
-        <div>
-          <h1 className="text-2xl mb-3">Here goes the title</h1>
-          <div className="flex items-start flex-col gap-y-3 md:gap-y-0 md:gap-x-3 md:flex-row">
-            <Image
-              src="/android-chrome-512x512.png"
-              alt="Avatar"
-              width={512} // intrinsic width
-              height={512} // intrinsic height
-              priority // preload (for above-the-fold)
-              className="aspect-square w-100 shrink-0"
-            />
-            <div className="flex flex-col gap-y-3 max-w-100">
-              <h2 className="font-bold text-xl ">I am first title</h2>
-              <p className="text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                a condimentum metus. Vestibulum viverra condimentum lectus.
-                Nullam non libero at sem gravida auctor. Orci varius natoque
-                penatibus et magnis dis parturient montes.
-              </p>
-              <h2 className="font-bold text-xl">I am second title</h2>
-              <p className="text-justify">
-                Nullam consectetur diam urna, sed accumsan odio facilisis ac.
-                Donec lacinia mauris sit amet bibendum varius. Sed mattis
-                volutpat bibendum. In at commodo tellus, nec consequat diam.
-                Maecenas finibus fringilla arcu a suscipit. Phasellus non massa
-                dignissim, semper magna id, blandit nulla. Maecenas eu erat sed
-                nisl pulvinar maximus.
-              </p>
-            </div>
+      <div className="flex justify-center gap-x-3 ">
+        <div className=" max-w-100 ">
+          <h1 className="mb-3 text-4xl">
+            We help you make the{" "}
+            <span className="font-bold">decisions that deliver</span>
+          </h1>
+
+          <p className="text-justify mb-6">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a
+            condimentum metus. Vestibulum viverra condimentum lectus. Nullam non
+            libero at sem gravida auctor. Orci varius natoque penatibus et
+            magnis dis parturient montes.
+          </p>
+
+          <h2>Trusted by teams at:</h2>
+          <div className="flex gap-x-3">
+            <div className="bg-slate-500 w-10 h-10"></div>
+            <div className="bg-slate-500 w-10 h-10"></div>
+            <div className="bg-slate-500 w-10 h-10"></div>
+            <div className="bg-slate-500 w-10 h-10"></div>
           </div>
         </div>
+
+        <Image
+          src="/hero.jpg"
+          alt="Two man talking at NorthBridge headquartrs."
+          width={800} // intrinsic width
+          height={800} // intrinsic height
+          priority // preload (for above-the-fold)
+          className="aspect-square w-100 shrink-0"
+        />
       </div>
     </>
   );
