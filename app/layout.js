@@ -40,8 +40,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${font.variable} h-full antialiased`}>
       <body className="text-brand-text bg-brand-bg">
         <Header />
-        <Navbar />
-        <main className="mx-3 mt-15">{children}</main>
+        <main className="mx-3 mt-24">{children}</main>
         <Footer />
       </body>
     </html>

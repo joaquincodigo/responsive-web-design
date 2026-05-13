@@ -9,12 +9,10 @@ const items = [
 
 export default function Navbar() {
   return (
-    <nav className="mt-12 h-12 md:flex items-center bg-brand-very-pale hidden">
-      <div className="ms-6 flex gap-x-6">
-        {items.map(({ label, icon, link }) => (
-          <NavLink key={label} href={link} label={label} icon={icon} />
-        ))}
-      </div>
+    <nav className="hidden md:flex gap-x-6 text-white ">
+      {items.map(({ label, icon, link }) => (
+        <NavLink key={label} href={link} label={label} icon={icon} />
+      ))}
     </nav>
   );
 }
