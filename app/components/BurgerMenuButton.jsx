@@ -2,7 +2,7 @@ export default function BurgerMenuButton({ onClick, isOpen }) {
   return (
     <button
       onMouseDown={onClick}
-      className="relative w-9 h-9 border border-white/70 rounded-md flex items-center justify-center md:hidden"
+      className="relative w-9 h-9 border border-white/70 rounded-md flex items-center justify-center md:hidden bg-[#a8d1fc]/30"
       aria-label="Toggle menu"
     >
       <span

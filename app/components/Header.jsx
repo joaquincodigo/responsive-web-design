@@ -15,7 +15,7 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <div className="bg-brand-blue h-12 flex justify-between items-center py-1.5 px-6 fixed inset-0 ">
+      <div className="bg-brand-blue h-12 flex justify-between items-center py-1.5 ps-1.5 pe-5 lg:px-6 fixed inset-0 ">
 
         {/* Burger menu */}
         <BurgerMenuButton onClick={toggleDrawer} isOpen={isOpen} />
@@ -28,7 +28,7 @@ export default function Header() {
             width={640} // intrinsic width
             height={106} // intrinsic height
             priority // preload (for above-the-fold)
-            className="w-60 h-full"
+            className="w-55 h-full"
           />
         </div>
 

@@ -2,9 +2,6 @@
 // Replace the import name using underscores for spaces (e.g. "Playfair_Display", "Roboto_Mono")
 import { PT_Serif } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 
 // 👉 Step 2: Configure your FONT
 // - variable: the CSS custom property name you'll reference in Tailwind/CSS
@@ -16,33 +13,31 @@ import Footer from "./components/Footer";
 //    <p className="font-bold">Bold</p>
 //    <p className="italic">Italic</p>
 const font = PT_Serif({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  weight: ["400", "700"],
+	variable: "--font-sans",
+	subsets: ["latin"],
+	style: ["normal", "italic"],
+	weight: ["400", "700"],
 });
 
 // 👉 Step 3: Update title and description for each project
 // - icons: favicons for multiple devices. favicon.ico goes in /app. The rest in /public.
 export const metadata = {
-  title: "Northbridge Consulting",
-  description: "",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
-  },
+	title: "Northbridge Consulting",
+	description: "",
+	icons: {
+		icon: "/favicon.ico",
+		shortcut: "/favicon-16x16.png",
+		apple: "/apple-touch-icon.png",
+	},
 };
 
 export default function RootLayout({ children }) {
-  return (
-    // 👉 Step 4: The font variable is injected here at the root — no need to touch this
-    <html lang="en" className={`${font.variable} h-full antialiased`}>
-      <body className="text-brand-text bg-brand-bg">
-        <Header />
-        <main className="mx-3 mt-24">{children}</main>
-        <Footer />
-      </body>
-    </html>
-  );
+	return (
+		// 👉 Step 4: The font variable is injected here at the root — no need to touch this
+		<html lang="en" className={`${font.variable} h-full antialiased`}>
+			<body className="text-brand-text bg-brand-bg">
+				{children}
+			</body>
+		</html>
+	);
 }

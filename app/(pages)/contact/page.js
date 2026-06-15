@@ -71,7 +71,7 @@ export default function ContactPage() {
             sent ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
-          <p className="mt-4">Message sent.</p>
+          <p className="mt-4">Thank you for your message.</p>
           <p className="mt-4">We will contact you soon.</p>
         </div>
       </div>
