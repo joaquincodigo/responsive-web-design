@@ -1,36 +1,55 @@
 'use client'
 import { useState } from 'react'
-import { Smartphone, Tablet, Monitor, Laptop } from 'lucide-react'
-import { TURBOPACK_CLIENT_BUILD_MANIFEST } from 'next/dist/shared/lib/constants'
+import Image from 'next/image'
 
 const DEVICES = [
-  { label: 'Phone', Icon: Smartphone, width: 320, height: 568 },
-  { label: 'Tablet portrait', Icon: Tablet, width: 480, height: 640 },
-  { label: 'Tablet landscape', Icon: Tablet, width: 768, height: 540 },
-  { label: 'Notebook', Icon: Laptop, width: 1280, height: 768 },
+  { label: 'Phone', icon: "./icons/phone.svg", width: 330, height: 620 },
+  { label: 'Tablet portrait', icon: "./icons/tablet_portrait.svg", width: 480, height: 740 },
+  { label: 'Tablet landscape', icon: "./icons/tablet_landscape.svg", width: 768, height: 540 },
+  { label: 'Notebook', icon: "./icons/notebook.svg", width: 1280, height: 768 },
 ]
 
 const MAX_W = 900
 
 export default function RootPage({ url }) {
 
-  url = "http://localhost:3000/home"
+  url = "/home"
   const [index, setIndex] = useState(3)
   const d = DEVICES[index]
   const scale = Math.min(1, MAX_W / d.width)
 
   return (
-    <div className="flex flex-col items-center gap-6">
+    <div className="flex flex-col items-center gap-6 h-screen w-screen items-center justify-center bg-gradient-to-b from-slate-300 to-slate-200">
 
       {/* iframe */}
       <div
-        className="overflow-hidden border border-neutral-200 rounded"
+        className={`
+          overflow-hidden
+
+          ${DEVICES[index].label === 'Phone'
+            ? 'rounded-lg outline outline-[10px] border border-b-40 border-t-20'
+            : ''}
+
+          ${DEVICES[index].label === 'Tablet portrait'
+            ? 'rounded-lg outline outline-[10px]'
+            : ''}
+
+          ${DEVICES[index].label === 'Tablet landscape'
+            ? 'rounded-lg outline outline-[10px]'
+            : ''}
+
+
+          ${DEVICES[index].label === 'Notebook'
+            ? 'outline outline-[5px]'
+            : ''}
+        `}
         style={{
           width: d.width * scale,
           height: d.height * scale,
           transition: 'width 0.35s ease, height 0.35s ease',
         }}
       >
+
         <iframe
           src={url}
           scrolling="vertical" // for modern browsers, allows vertical scroll if needed
@@ -44,38 +63,38 @@ export default function RootPage({ url }) {
             transition: 'width 0.35s ease, height 0.35s ease, transform 0.35s ease',
           }}
         />
+
+
       </div>
+
 
       {/* CONTAINER */}
       <div className="flex flex-col items-center gap-1 w-full max-w-sm">
 
         {/* DEVICE LABELS */}
-        <div className="flex justify-between w-full px-1 bg-red-100">
-          {DEVICES.map(({ label, Icon }, i) => (
+        <div className="flex justify-between w-full  ">
+          {DEVICES.map(({ label, icon }, i) => (
             <button
               key={label}
               onClick={() => setIndex(i)}
-              className="flex flex-col items-center gap-1 group"
+              className="flex flex-col items-center justify-center gap-1 group w-10 h-10 hover:cursor-pointer"
             >
-              <Icon
-                size={20}
-                className={`
-                  transition-colors
-                  ${i === index ? 'text-neutral-800' : 'text-neutral-400'}
-                  ${DEVICES[i].label === 'Tablet landscape' ? '-rotate-90' : ''}
-                  `}
+              <Image
+                alt={label}
+                width={24}
+                height={24}
+                src={icon}
+                size={40}
+                className={`transition-colors ${i === index ? 'text-neutral-800' : 'text-neutral-400'}`}
               />
-              {/* <span className={`text-[10px] tracking-wide uppercase transition-colors ${i === index ? 'text-neutral-700' : 'text-neutral-400'
-                }`}>
-                {label}
-              </span> */}
+
             </button>
           ))}
         </div>
 
         {/* SLIDER */}
-        <div className="relative w-full flex items-center px-">
-          <div className="absolute inset-x-0 h-px bg-neutral-300" />
+        <div className="relative w-full flex items-center px-3">
+          <div className="absolute inset-x-0 h-px bg-black" />
           <input
             type="range"
             min={0}
@@ -97,6 +116,10 @@ export default function RootPage({ url }) {
           />
         </div>
 
+
+        <span className={`text-xl tracking-wide $text-neutral-700`}>
+          {DEVICES[index].label}
+        </span>
       </div>
     </div >
   )

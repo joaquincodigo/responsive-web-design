@@ -4,7 +4,7 @@ import Link from "next/link";
 import { teamIcon, homeIcon, contactIcon } from "@/public/icons/icons";
 
 const items = [
-  { label: "Home", icon: homeIcon, link: "/" },
+  { label: "Home", icon: homeIcon, link: "/home" },
   { label: "Our team", icon: teamIcon, link: "/team" },
   { label: "Contact us", icon: contactIcon, link: "/contact" },
 ];
@@ -12,10 +12,8 @@ const items = [
 export default function Drawer({ isOpen, setIsOpen }) {
   // Close on ESC key press
   useEffect(() => {
-    window.addEventListener(
-      "keydown",
-      (e) => e.key === "Escape" && setIsOpen(false)
-    );
+    const handler = (e) => e.key === "Escape" && setIsOpen(false);
+    window.addEventListener("keydown", handler);
     return () => window.removeEventListener("keydown", handler);
   }, []);
 
@@ -24,18 +22,16 @@ export default function Drawer({ isOpen, setIsOpen }) {
       {/* Backdrop */}
       <div
         onClick={() => setIsOpen(false)}
-        className={`fixed top-12 left-0 right-0 bottom-0 bg-black/30 transition-opacity duration-300 ${
-          isOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed top-12 left-0 right-0 bottom-0 bg-black/30 transition-opacity duration-300 ${isOpen
+          ? "opacity-100 pointer-events-auto"
+          : "opacity-0 pointer-events-none"
+          }`}
       />
 
       {/* Drawer panel */}
       <div
-        className={`fixed top-12 left-0 h-full w-56 bg-white shadow-xl z-50
-          transition-transform duration-300 ease-in-out 
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`fixed top-12 left-0 bottom-0 w-56 bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out 
+                    ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         <nav className="flex flex-col mt-6 ms-3 gap-y-3">
           {items.map(({ label, icon, link }) => (

@@ -13,3 +13,14 @@ Re-writing the tailwind of the component seems to reset it.
   --color-brand-pale: #598bb8;
   --color-brand-very-pale: #cddce8;
 }
+
+@layer utilities {
+  .scrollbar-hidden {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/old Edge */
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Edge */
+  }
+}

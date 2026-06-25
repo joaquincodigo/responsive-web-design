@@ -17,8 +17,8 @@ export default function ContactPage() {
   }
 
   return (
-    <div className="flex justify-center">
-      <div className="w-full max-w-110 min-h-90">
+    <div className="flex justify-center pe-1 md:pe-0">
+      <div className="w-full max-w-110 min-h-100">
         <h1 className="text-2xl mb-3">Contact us</h1>
 
         {/* Form: fades out when fading=true, hidden from layout after sent */}
@@ -67,8 +67,8 @@ export default function ContactPage() {
 
         {/* Message: fades in when sent=true */}
         <div
-          className={`flex flex-col items-center justify-center h-full pb-15 transition-opacity duration-500 ${
-            sent ? "opacity-100" : "opacity-0 pointer-events-none"
+          className={`flex flex-col items-center justify-center h-full transition-opacity duration-500 ${
+            sent ? "opacity-100" : "hidden opacity-0 pointer-events-none"
           }`}
         >
           <p className="mt-4">Thank you for your message.</p>
