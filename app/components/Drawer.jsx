@@ -45,17 +45,17 @@ export default function Drawer({ isOpen, setIsOpen }) {
               <Link
                 key={label}
                 href={link}
-                className={`w-full py-1 ps-3 hover:pointer active:bg-brand-blue active:text-white active:rounded-md ${isCurrentPage
+                className={`w-full py-1 ps-3 hover:cursor-pointer active:bg-brand-blue active:text-white active:rounded-md ${isCurrentPage
                   ? "text-brand-blue font-bold bg-brand-blue/10 rounded-md"
                   : ""
                   }`}
               >
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center gap-x-1.5 w-full h-full"
+                  className="flex items-center gap-x-1.5 w-full h-full hover:cursor-pointer"
                 >
                   {icon}
-                  <span>{label}</span>
+                  <span className="hover:cursor-pointer">{label}</span>
                 </button>
               </Link>
             );
